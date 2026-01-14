@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <title>TimeSmart Student</title>
+  <link rel="stylesheet" href="style.css" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+
+<header class="app-header">
+  <h1>⏰ TimeSmart Student</h1>
+  <p>Aplikasi manajemen waktu mahasiswa</p>
+</header>
+
+<nav class="tabs">
+  <button class="tab active" onclick="showTab('dashboard')">Dashboard</button>
+  <button class="tab" onclick="showTab('schedule')">Jadwal</button>
+  <button class="tab" onclick="showTab('tasks')">Tugas</button>
+  <button class="tab" onclick="showTab('priority')">Prioritas</button>
+</nav>
+
+<main class="content">
+
+  <!-- DASHBOARD -->
+  <section id="dashboard" class="page active">
+    <div class="card">
+      <h2>Hari Ini</h2>
+      <div class="time" id="clock"></div>
+
+      <p>Progress Tugas</p>
+      <div class="progress">
+        <div class="progress-bar" style="width: 43%"></div>
+      </div>
+    </div>
+
+    <div class="card warning">
+      <h3>⏳ Deadline Terdekat</h3>
+      <p>Design Thinking (Besok)</p>
+    </div>
+  </section>
+
+  <!-- JADWAL -->
+  <section id="schedule" class="page">
+    <h2>Jadwal Harian</h2>
+
+    <div class="schedule-item kuliah">08.00 - Kuliah</div>
+    <div class="schedule-item tugas">10.00 - Mengerjakan Tugas</div>
+    <div class="schedule-item kerja">12.00 - Kerja Part-Time</div>
+    <div class="schedule-item belajar">14.00 - Belajar Mandiri</div>
+  </section>
+
+  <!-- TUGAS -->
+  <section id="tasks" class="page">
+    <h2>Daftar Tugas</h2>
+
+    <div class="task high">
+      <input type="checkbox">
+      <div class="task-info">
+        <strong>Design Thinking</strong>
+        <p>Deadline: Besok</p>
+
+        <input type="datetime-local" class="reminder-time">
+        <button onclick="setReminder(this, 'Laporan Matematika')">⏰ Set Alarm</button>
+      </div>
+      <span class="badge">FASTER</span>
+    </div>
+
+    <div class="task medium">
+      <input type="checkbox">
+      <div class="task-info">
+        <strong>PPT Presentasi</strong>
+        <p>Deadline: 3 Hari</p>
+
+        <input type="datetime-local" class="reminder-time">
+        <button onclick="setReminder(this, 'PPT Presentasi')">⏰ Set Alarm</button>
+      </div>
+      <span class="badge">FAST</span>
+    </div>
+
+    <div class="task low">
+      <input type="checkbox">
+      <div class="task-info">
+        <strong>Resume Jurnal</strong>
+        <p>Deadline: 1 Minggu</p>
+
+        <input type="datetime-local" class="reminder-time">
+        <button onclick="setReminder(this, 'Resume Jurnal')">⏰ Set Alarm</button>
+      </div>
+      <span class="badge">MEDIUM</span>
+    </div>
+  </section>
+
+  <!-- PRIORITAS -->
+  <section id="priority" class="page">
+    <h2>Matrix Prioritas</h2>
+    <div class="matrix">
+      <div class="box urgent-important">Penting & Mendesak</div>
+      <div class="box not-urgent-important">Penting</div>
+      <div class="box urgent-not-important">Mendesak</div>
+      <div class="box not-urgent-not-important">Tidak Penting</div>
+    </div>
+  </section>
+
+</main>
+
+<script src="script.js"></script>
+</body>
+</html>
